@@ -14,14 +14,14 @@ class RestaurantTest {
     @Test
     public void is_restaurant_open_should_return_true_if_time_is_between_opening_and_closing_time(){
         Restaurant restaurantSelect = Mockito.spy(restaurant);
-        LocalTime currentTime = LocalTime.parse("11:00:00");
+        LocalTime currentTime = LocalTime.parse("10:30:00");
         Mockito.when(restaurantSelect.getCurrentTime()).thenReturn(currentTime);
         assertEquals(true,restaurantSelect.isRestaurantOpen());    }
 
     @Test
     public void is_restaurant_open_should_return_false_if_time_is_outside_opening_and_closing_time(){
         Restaurant restaurantSelect = Mockito.spy(restaurant);
-        LocalTime currentTime = LocalTime.parse("10:50:00");
+        LocalTime currentTime = LocalTime.parse("22:50:00");
         Mockito.when(restaurantSelect.getCurrentTime()).thenReturn(currentTime);
         assertEquals(false,restaurantSelect.isRestaurantOpen());
 
